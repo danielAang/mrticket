@@ -1,10 +1,10 @@
 module.exports = {
   development: {
-    username: "mrticket",
-    password: "1234",
-    database: "mrticket_dev",
+    username: "postgres",
+    password: "mrticket1234",
+    database: "mrticket",
     host: "127.0.0.1",
-    dialect: "mysql",
+    dialect: "postgres",
     define: {
       timestamp: true,
       underscore: true,
