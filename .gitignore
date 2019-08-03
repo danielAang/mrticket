@@ -89,4 +89,6 @@ typings/
 .dynamodb/
 
 dist/*
+
+__tests__/database.sqlite
 # End of https://www.gitignore.io/api/node
