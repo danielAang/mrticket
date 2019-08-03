@@ -1,18 +1,24 @@
 "use strict";
 
-var fs = require("fs");
-var path = require("path");
-var Sequelize = require("sequelize");
-var basename = path.basename(__filename);
-var config = require(__dirname.join("/../config/config.js"));
-var db = {};
+const fs = require("fs");
+const path = require("path");
+const Sequelize = require("sequelize");
+const basename = path.basename(__filename);
+const config = require(path.join(__dirname, "/../../config/database.js"));
+const db = {};
 
-var sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password,
-  config,
-);
+var sequelize = null;
+if (process.env.NODE_ENV === "test") {
+  sequelize = new Sequelize({
+    dialect: config.dialect,
+    storage: config.storage,
+  });
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: config.host,
+    dialect: config.dialect,
+  });
+}
 
 fs.readdirSync(__dirname)
   .filter(file => {
@@ -21,7 +27,7 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(file => {
-    var model = sequelize["import"](path.join(__dirname, file));
+    const model = sequelize["import"](path.join(__dirname, file));
     db[model.name] = model;
   });
 
