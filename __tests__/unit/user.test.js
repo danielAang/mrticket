@@ -1,15 +1,16 @@
 import { User } from "../../src/models";
 import faker from "faker";
 import truncate from "../utils/truncate";
+import deleteSqlite from "../utils/deleteSqlite";
 import factory from "../factories";
+
+beforeAll(async () => {
+  await truncate();
+});
 
 describe("Testing CRUD operations on User model", () => {
   
-  var user;
-  
-  beforeAll(async () => {
-    await truncate();
-  });
+  var user;  
   
   it("Should insert User", async () => {
     user = await factory.create("User", {});
@@ -37,7 +38,7 @@ describe("Testing CRUD operations on User model", () => {
 
   it("Should delete an User", async () => {
     const id = user.id;
-    user.destroy();
+    await user.destroy();
     const _user = await User.findOne({
       where: {
         id
