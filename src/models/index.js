@@ -12,8 +12,10 @@ if (process.env.NODE_ENV === "test") {
   sequelize = new Sequelize({
     dialect: config.dialect,
     storage: config.storage,
-    timestamps: true,
-    underscored: true,
+    define: {
+      timestamps: true,
+      underscored: true,
+    }
   });
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, {

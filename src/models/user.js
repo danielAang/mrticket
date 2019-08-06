@@ -9,7 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       birth_date: DataTypes.DATE,
     },
-    {},
+    {
+      sequelize,
+      tableName: "Users"
+    },
   );
   User.associate = function(models) {
     models.User.hasMany(models.Event);

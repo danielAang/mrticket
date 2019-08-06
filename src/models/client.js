@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
       cpf: DataTypes.STRING,
       address: DataTypes.STRING,
     },
-    {},
+    {
+      sequelize,
+      tableName: "Clients"
+    },
   );
   Client.associate = function(models) {
     models.Client.hasMany(models.Event);

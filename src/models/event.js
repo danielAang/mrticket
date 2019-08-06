@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING
   }, 
   {
-    
+    sequelize,
+    tableName: "Events"
   });
   Event.associate = function(models) {
     models.Event.belongsTo(models.User, {
