@@ -1,6 +1,6 @@
 import faker from "faker";
 import { factory } from "factory-girl";
-import { User, Client, Event } from "../src/models";
+import { User, Client, Event, TicketPack } from "../src/models";
 
 factory.define("User", User, {
   username: faker.internet.email(),
@@ -22,6 +22,10 @@ factory.define("Event", Event, {
   name: faker.company.companyName(),
   date: faker.date.future(),
   address: faker.address.streetAddress()
+});
+
+factory.define("TicketPack", TicketPack, {
+  number: faker.random.number()
 });
 
 module.exports = factory;

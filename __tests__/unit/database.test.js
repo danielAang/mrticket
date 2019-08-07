@@ -1,6 +1,6 @@
-import eventTest from "./event.test";
-import userTest from "./user.test";
-import clientTest from "./client.test";
+import eventTest from "./event";
+import userTest from "./user";
+import clientTest from "./client";
 import db from "../../src/models";
 
 beforeAll(async () => {
@@ -14,7 +14,6 @@ userTest();
 clientTest();
 
 afterAll(() => {
-  console.log("closing connection");
   db.sequelize.close();
 });
 /* userTest(); */

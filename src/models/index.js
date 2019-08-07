@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === "test") {
   sequelize = new Sequelize({
     dialect: config.dialect,
     storage: config.storage,
+    logging: false,
     define: {
       timestamps: true,
       underscored: true,
