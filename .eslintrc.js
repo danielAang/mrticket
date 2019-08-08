@@ -2,6 +2,7 @@ module.exports = {
   env: {
     es6: true,
     node: true,
+    jest: true,
   },
   extends: ["standard", "prettier"],
   plugins: ["prettier"],
@@ -19,4 +20,4 @@ module.exports = {
     "no-unused-vars": ["error", { argsIgnorePattern: "next" }],
     semi: [2, "always"],
   },
-}
+};
