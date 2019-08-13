@@ -13,7 +13,7 @@ userTest();
 
 clientTest();
 
-afterAll(() => {
-  db.sequelize.close();
+afterAll(async () => {
+  await db.sequelize.close();
 });
 /* userTest(); */

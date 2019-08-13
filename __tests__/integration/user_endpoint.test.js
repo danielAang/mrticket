@@ -44,6 +44,6 @@ describe("Test /users endpoint operations", () => {
   
 });
 
-afterAll(() => {
-  db.sequelize.close();
+afterAll(async () => {
+  await db.sequelize.close();
 });
